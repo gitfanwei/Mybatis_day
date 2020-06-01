@@ -7,7 +7,7 @@
     select * from  库名.表明-->
 <mapper namespace="com.fan.IUserMapper.UserMapper">
     <select id="getUserMapper" resultType="com.fan.user.User" parameterType="com.fan.user.User">
-    select * from test.one
+    select * from test.one;
   </select>
     <insert id="insertUser" parameterType="com.fan.user.User">
         insert  into test.one(name,age,id,ai) values (#{name},#{age},#{id},#{ai});
@@ -21,5 +21,16 @@
     <select id="getUserID" parameterType="com.fan.user.User" resultType="com.fan.user.User">
         select * from test.one where id=#{id};
     </select>
-
+    <insert id="getadd" parameterType="Map">
+        insert into test.one(name,id) values(#{namee},#{ide});
+    </insert>
+    <update id="getUpdaUser" parameterType="Map">
+        update test.one set name =#{na} where id=#{di};
+    </update>
 </mapper>
+
+
+
+
+
+

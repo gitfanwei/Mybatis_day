@@ -7,7 +7,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import org.junit.validator.PublicClassValidator;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class testUser {
 
@@ -51,6 +53,28 @@ public class testUser {
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         User userID = mapper.getUserID(91);
         System.out.println(userID);
+        sqlSession.close();
+    }
+    @Test
+    public void test6(){
+        SqlSession sqlSession = SessFactory.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+         Map<String,Object> map=new HashMap<String, Object>();
+         map.put("namee","zhangsna");
+         map.put("ide",50);
+        mapper.getadd(map);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+    @Test
+    public void test7(){
+        SqlSession sqlSession = SessFactory.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        Map<String,Object> map=new HashMap<String, Object>();
+        map.put("na","小范");
+        map.put("di",10);
+        mapper.getUpdaUser(map);
+        sqlSession.commit();
         sqlSession.close();
     }
 

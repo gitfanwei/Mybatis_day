@@ -9,4 +9,14 @@
     <select id="getUserMapper" resultType="com.fan.user.User">
     select * from test.one
   </select>
+    <insert id="insertUser" parameterType="com.fan.user.User">
+        insert  into test.one(name,age,id,ai) values (#{name},#{age},#{id},#{ai});
+    </insert>
+    <delete id="getDeleteUser" parameterType="com.fan.user.User">
+        delete  from test.one where id=#{idd};
+    </delete>
+    <update id="getUpdateUser" parameterType="com.fan.user.User">
+        update test.one set name=#{name},age=#{age},ai=#{ai} where id=#{id};
+    </update>
+
 </mapper>

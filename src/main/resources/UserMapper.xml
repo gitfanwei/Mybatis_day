@@ -6,7 +6,7 @@
  resultType=实体类（要写全路径)
     select * from  库名.表明-->
 <mapper namespace="com.fan.IUserMapper.UserMapper">
-    <select id="getUserMapper" resultType="com.fan.user.User">
+    <select id="getUserMapper" resultType="com.fan.user.User" parameterType="com.fan.user.User">
     select * from test.one
   </select>
     <insert id="insertUser" parameterType="com.fan.user.User">
@@ -18,5 +18,8 @@
     <update id="getUpdateUser" parameterType="com.fan.user.User">
         update test.one set name=#{name},age=#{age},ai=#{ai} where id=#{id};
     </update>
+    <select id="getUserID" parameterType="com.fan.user.User" resultType="com.fan.user.User">
+        select * from test.one where id=#{id};
+    </select>
 
 </mapper>

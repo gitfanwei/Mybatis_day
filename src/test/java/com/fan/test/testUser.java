@@ -5,6 +5,7 @@ import com.fan.SessionFactory_.SessFactory;
 import com.fan.user.User;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
+import org.junit.validator.PublicClassValidator;
 
 import java.util.List;
 
@@ -44,6 +45,13 @@ public class testUser {
         sqlSession.commit();
         sqlSession.close();
     }
-
+    @Test//查询单条语句
+    public void  test5(){
+        SqlSession sqlSession = SessFactory.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User userID = mapper.getUserID(91);
+        System.out.println(userID);
+        sqlSession.close();
+    }
 
 }
